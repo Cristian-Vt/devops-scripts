@@ -1,0 +1,1 @@
+https://devpost.hashnode.dev/aws-cdk-101-statemachine-and-stepfunctions-replacing-our-sqs-based-lambda-trigger
