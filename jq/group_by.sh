@@ -9,3 +9,9 @@ people='[
 ]'
 
 echo $people | jq 'group_by(.city) | map({city: .[0].city, count: length})'
+
+aws organizations list-accounts --profile $profile \
+  | jq -r '.Accounts |
+  group_by(.Status) |
+  .[] |
+  .[0].Status + " " + (.|length|tostring)'
