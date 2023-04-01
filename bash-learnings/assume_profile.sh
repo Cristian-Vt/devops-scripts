@@ -4,7 +4,7 @@ config_file="$HOME/.aws/config"
 aws_command="s3 ls"
 forbiden_exception="ForbiddenException"
 log_account_id="AWS CLI executed in Account ID: "
-log_no_access="You don't have access to the SSO Account ID for profile $profile_name"
+log_no_access="You don't have access to the SSO Account ID for profile: "
 
 # function that reads the aws config_file and gets the profile
 function get_aws_profile() {
@@ -50,7 +50,7 @@ function execute_aws_command() {
                 log $log_account_id $account_id
             else
                 if check_exception $output $forbiden_exception ; then
-                    log $log_no_access $profile_name: $account_id
+                    log $log_no_access $profile_name $account_id
                 fi
             fi
     done
