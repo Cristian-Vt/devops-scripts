@@ -3,7 +3,7 @@
 config_file="$HOME/.aws/config"
 aws_command="s3 ls"
 forbiden_exception="ForbiddenException"
-log_account_id="Account ID: "
+log_account_id="AWS CLI executed in Account ID: "
 log_no_access="You don't have access to the SSO Account ID for profile $profile_name"
 
 # function that reads the aws config_file and gets the profile
@@ -34,6 +34,7 @@ function handle_exception(){
     echo "$output" | grep -q $exception
 }
 
+# function to take strings to help 
 function log(){
     message=$1
     echo $message
